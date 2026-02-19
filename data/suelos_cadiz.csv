@@ -1,0 +1,5 @@
+nombre,mw,tipo,lat_dec,long_dec,pendiente,profundidad,textura,pedregosidad,drenaje,salinidad
+mira_mundo,49.98,pfv,36.51350,-6.13280,2,80,limo_arenoso,40,Bueno,0.5
+puerto_real,133.57,pfv,36.54130,-6.10320,5,100,franco_arcilloso,20,Moderado,1.5
+cartuja,46.8,pfv,36.57270,-6.11070,8,50,arcillo_limoso,10,Pobre,0.5
+las_quinientas,90.7,pfv,36.60700,-6.10540,15,60,arcillo_limoso,15,Imperfecto,0.5
