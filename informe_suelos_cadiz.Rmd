@@ -29,10 +29,9 @@ El objetivo es determinar la **capacidad de uso del suelo** siguiendo el sistema
 
 Las cuatro centrales analizadas son: **Puerto Real 110**, **Las Quinientas**, **Miramundo** y **Cartuja**. 
 
-Estas se encuentranen la provincia de Cádiz, próximas a espacios protegidos como el *Parque Natural Bahía de Cádiz* y varias *Reservas Naturales Endorreicas*. 
+Estas se encuentran en la provincia de Cádiz, próximas a espacios protegidos como el *Parque Natural Bahía de Cádiz* y algunas *Reservas Naturales Endorreicas*. 
 
-Los usos del suelo predominantes en los emplazamientos de Puerto Real 110, Cartuja y 
-Las Quinientas son los Cultivos agrícolas (Cultivo herbáceo distinto de arroz), mientras que Mira-mundo se asienta sobre una Vía de comunicación no asfaltada. Las cuatro parcelas presentan la existencia de un Hábitat de Interés Comunitario (HIC) terrestre no prioritario.
+Los usos del suelo predominantes en los emplazamientos de Puerto Real 110, Cartuja y Las Quinientas son los Cultivos agrícolas (Cultivo herbáceo distinto de arroz), mientras que Mira-mundo se asienta sobre una Vía de comunicación no asfaltada. Las cuatro parcelas presentan la existencia de un Hábitat de Interés Comunitario (HIC) terrestre no prioritario.
 
 A continuación, se presenta un **mapa interactivo** con la ubicación exacta de las cuatro zonas de estudio:
 
@@ -65,7 +64,7 @@ Se han interpretado diversos indicadores divididos en tres categorías:
 2. *Edáficos*: Profundidad (cm), textura (clase), pedregosidad (%), drenaje (clase) y salinidad (dS/m).
 3. *Climáticos*: Humedad (meses) y riesgo de heladas (meses).
 
-Los valores de los indicadores edáficos y topográficos se obtienen a partir de cartografía y fuentes de información ambiental (como REDIAM o Catastro), mientras que los climáticos se pueden estimar a partir de datos meteorológicos de una estación del IFAPA. 
+Los valores de los indicadores edáficos y topográficos se obtienen a partir de cartografía y fuentes de información ambiental (como REDIAM o Catastro), mientras que los datos climáticos se pueden estimar a partir de datos meteorológicos de una estación del IFAPA. 
 
 
 # Resultados
@@ -83,7 +82,7 @@ $$
 • *Riesgo de heladas (Rh)*: Define el número de meses en los que la temperatura media anual es inferior a 6 ºC
 $$
 \begin{equation}
-Riesgo de heladas (nºmeses) = 11,441 –(0,758 \times T)\end{equation}
+Riesgo/ de/ heladas = 11,441 –(0,758 \times T)\end{equation}
 $$
 donde:
 
@@ -92,7 +91,7 @@ donde:
 - $ET$: evapotranspiración media anual
 
 
-A continuación, se importan los datos diarios de la estación meteorológica del *IFAPA "Puerto de Santa María"* (periodo 2020-2024) para calcular los promedios anuales necesarios para las fórmulas
+A continuación, se importan los datos diarios de la estación meteorológica del *IFAPA "Puerto de Santa María"* (periodo 2020-2024) para calcular los promedios anuales necesarios para las fórmulas.
 
 ```{r datos_clima, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -107,7 +106,7 @@ ET_media <- 3.97631868
 
 Puedes consultar los datos brutos en la web del [IFAPA](https://www.juntadeandalucia.es/agriculturaypesca/ifapa/riaweb/web/estaciones?provincia_filter=11)
 
-En la Figura @ref(fig:grafico-pp) se observa la variabilidad de las precipitaciones diarias durante el periodo de estudio.
+En la Figura @ref(fig:grafico-precipitacion) se observa la variabilidad de las precipitaciones diarias durante el periodo de estudio.
 
 ```{r grafico_precipitacion, echo=FALSE, warning=FALSE, message=FALSE, fig.cap= "Figura 2: Evolución Temporal de la Precipitación"}
 library(ggplot2)
@@ -125,7 +124,7 @@ ggplot(clima_cadiz, aes(x = FECHA, y = Ca10Precip)) +
   )
 ```
 
-En la Figura @ref(fig:grafico-pp) se observa la variabilidad de la temperatura diaria durante el periodo de estudio.
+En la Figura @ref(fig:grafico-temperatura) se observa la variabilidad de la temperatura diaria durante el periodo de estudio.
 
 ```{r grafico_temperatura, echo=FALSE, message=FALSE, warning=FALSE, fig.cap= "Figura 2: Evolución Temporal de la Temperatura"}
 library(ggplot2)
@@ -155,12 +154,12 @@ Los resultados obtenidos para las cuatro parcelas de estudio son:
 • *Humedad*: r round(humedad_final, 4) meses.
 • *Riesgo de heladas*: r round(heladas_final, 4) meses.
 
-Al clasificar estos valores según la Tabla 1 del sistema FAO, ambos parámetros caen en la categoría *S1 (Excelente)*, ya que la humedad es ≤3 meses y el riesgo de heladas es ≤2 meses
+Al clasificar estos valores según la Tabla 1 del sistema FAO, ambos parámetros caen en la categoría *S1 (Excelente)*, ya que la humedad es ≤3 meses y el riesgo de heladas es ≤2 meses.
 
 
 ## Obtención de parámetros Topográficos y Edáficos
 
-La información para Pendiente y Tipo de suelo se obtuvo de la información geográfica ambiental de la REDIAM Andaluza. Después se hizo una búsqueda bibliográfica para establecer los rangos típicos u orientativos de Profundidad, Textura, Pedregosidad/Rocosidad, Drenaje y Salinidad de los suelos dominantes dentro de cada Unidad Edáfica (asociaciones de suelos) para la provincia de Cádiz [@consejeria_de_medio_ambiente_junta_de_andalucia_tipologisuelos_nodate; @junta_de_andalucia__consejeria_de_medio_ambiente_tipologisuelos_nodate]. 
+La información para *Pendiente* y *Tipo de suelo* se obtuvo de la información geográfica ambiental de la REDIAM Andaluza. Después se hizo una búsqueda bibliográfica para establecer los rangos típicos u orientativos de *Profundidad, Textura, Pedregosidad/Rocosidad, Drenaje y Salinidad* de los suelos dominantes dentro de cada Unidad Edáfica (asociaciones de suelos) para la provincia de Cádiz [@consejeria_de_medio_ambiente_junta_de_andalucia_tipologisuelos_nodate; @junta_de_andalucia__consejeria_de_medio_ambiente_tipologisuelos_nodate]. 
 
 ```{r tabla_resultados, echo=FALSE, warning=FALSE, message=FALSE, fig.cap= "Tabla Propiedades Topográficas, Edáficas y Climáticas de los suelos de las parcelas destinadas a mega centrales solares en Cádiz"}
 library(knitr)
@@ -176,8 +175,7 @@ Puedes consultar los datos en el Visor de la [Rediam](https://portalrediam.cica.
 
 # Conclusiones y Valoración Final
 
-La determinación de la clase final de la parcela se realiza aplicando la Ley del Mínimo, una práctica esencial en este tipo de evaluación. Esto significa que la 
-clasificación final estará determinada por el parámetro que presente la limitación más restrictiva (el peor valor)
+La determinación de la clase final de la parcela se realiza aplicando la **Ley del Mínimo**, una práctica esencial en este tipo de evaluación. Esto significa que la clasificación final estará determinada por el parámetro que presente la limitación más restrictiva (el peor valor).
 
 ```{r tabla_clase_final, echo=FALSE, warning=FALSE, message=FALSE, fig.cap= "Tabla. Categorías de los suelos en función de su Capacidad de uso, a partir de la interpretación de diversos indicadores topográficos, edáficos y climáticos"}
 library(knitr)
@@ -190,7 +188,7 @@ knitr::kable(clase_final,
 
 La evaluación pormenorizada de las parcelas revela realidades distintas según su capacidad de uso y ubicación geográfica. La central *Puerto Real 110*, que ostenta la mayor potencia instalada con 133.57 MW, se clasifica como **Clase N (Marginal o Improductiva)** debido fundamentalmente a su drenaje deficiente, factor típico de los Vertisoles arcillosos que sufren encharcamientos estacionales. Su ocupación se considera una buena práctica ambiental en la planificación territorial, ya que prioriza el desarrollo energético sobre tierras no aptas para el cultivo [@lopez_geta_atlas_2005]. 
 
-Por el contrario, las centrales de *Cartuja* y *Las Quinientas* se sitúan en suelos de **Clase S2 (Buena a Moderada)** dedicados actualmente a cultivos herbáceos activos, lo que genera un conflicto de uso del suelo al desplazar producción agrícola por infraestructuras industriales. En el caso de *Miramundo*, aunque posee una calidad intrínseca elevada **(S1-S2)**, el impacto directo sobre la pérdida de producción primaria se ve minimizado al asentarse sobre una vía de comunicación no asfaltada [@lopez_geta_atlas_2005]
+Por el contrario, las centrales de *Cartuja* y *Las Quinientas* se sitúan en suelos de **Clase S2 (Buena a Moderada)** dedicados actualmente a cultivos herbáceos activos, lo que genera un conflicto de uso del suelo al desplazar producción agrícola por infraestructuras industriales. En el caso de *Miramundo*, aunque posee una calidad intrínseca elevada **S1 (Excelente)**, el impacto directo sobre la pérdida de producción primaria se ve minimizado al asentarse sobre una vía de comunicación no asfaltada [@lopez_geta_atlas_2005]
 
 ![Mapa de Tipos de Suelos](images/foto_2.png)
 
